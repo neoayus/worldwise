@@ -12,12 +12,18 @@ export default function App(){
     <>
       <BrowserRouter> 
         <Routes> 
-          <Route path="/" element={<Homepage/>} />
+          <Route index element={<Homepage/>} />
           <Route path="product" element={<Product/>} />
           <Route path="pricing" element={<Pricing/>} />
           <Route path="/login" element={<Login/>} />
 
-          <Route path="app" element={<AppLayout/>} />
+          {/* nested route here! */}
+          <Route path="app" element={<AppLayout/>}>
+            <Route index path="cities" element={<p> List of Cities </p>}/>
+            <Route path="countries" element={<p> Counteries </p>}/>
+            <Route path="form" element={<p> Form </p>}/>
+    
+          </Route> 
           {/* if the url dosen't match anything from above  */}
           <Route path="*" element={<PageNotFound/>} />
         </Routes>
