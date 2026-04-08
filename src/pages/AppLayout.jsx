@@ -1,7 +1,13 @@
 import {NavLink} from "react-router-dom";
+import Sidebar from "../components/Sidebar";
+import styles from "./AppLayout.module.css";
+import Map from "../components/Map";
 
 export default function AppLayout(){
   return(
-    <h3>AppLayout.</h3>
+    <div className={styles.app}>
+      <Sidebar /> 
+      <Map />
+    </div>
   )
 }
