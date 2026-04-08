@@ -7,7 +7,7 @@ export default function PageNav(){
         <li> <NavLink to="/"> Home </NavLink> </li>
         <li> <NavLink to="/pricing"> Product </NavLink> </li>
         <li> <NavLink to="/product"> Pricing </NavLink> </li>
-        <li> <NavLink to="*"> Not Found </NavLink> </li>
+      <li> <NavLink to="*"> Not Found </NavLink> </li>
       </ul>
     </nav>
   )
