@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 import Product from "./pages/Product";
 import Homepage from "./pages/Homepage";
@@ -45,8 +45,8 @@ export default function App() {
 
           {/* nested route here! */}
           <Route path="app" element={<AppLayout />}>
+            <Route index element={<Navigate replace to="cities" />} />
             <Route
-              index
               path="cities"
               element={<CityList cities={cities} IsLoading={IsLoading} />}
             />
