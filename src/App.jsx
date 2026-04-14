@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Product from "./pages/Product";
@@ -7,7 +8,7 @@ import PageNotFound from "./pages/PageNotFound";
 import AppLayout from "./pages/AppLayout";
 import Login from "./pages/Login";
 import CityList from "./components/CityList";
-import { useEffect, useState } from "react";
+import CountryList from "./components/CountryList";
 
 const URL = "http://localhost:8000";
 
@@ -23,9 +24,9 @@ export default function App() {
         const data = await res.json();
         setCities(data);
       } catch {
-        alert("There was an erroe in loading data ");
-      }finally{
-        setIsLoading(false); 
+        alert("There was an error in loading data ");
+      } finally {
+        setIsLoading(false);
       }
     }
     fetchCities();
@@ -42,8 +43,15 @@ export default function App() {
 
           {/* nested route here! */}
           <Route path="app" element={<AppLayout />}>
-            <Route index path="cities" element={<CityList cities={cities} IsLoading={IsLoading}/>} />
-            <Route path="countries" element={<p> Counteries </p>} />
+            <Route
+              index
+              path="cities"
+              element={<CityList cities={cities} IsLoading={IsLoading} />}
+            />
+            <Route
+              path="countries"
+              element={<CountryList cities={cities} isLoading={IsLoading} />}
+            />
             <Route path="form" element={<p> Form </p>} />
           </Route>
           {/* if the url dosen't match anything from above  */}
